@@ -57,4 +57,4 @@ def make_mp3_files(file_name):
     print("MP3 변환이 완료되었습니다.")
 
 if __name__ == "__main__":
-    make_mp3_files("test")
+    make_mp3_files("test2")
