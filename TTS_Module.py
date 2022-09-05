@@ -36,3 +36,25 @@ def make_mp3_files_all_languages(file_name):
         # st.write(f"[알림] {row[0]}번째 중국어 문장 음성 변환 완료")
         my_bar.progress(int(row[0] * 100 / df.index[-1]))
     st.success("MP3 변환이 완료되었습니다. 새로고침 해주세요.")
+
+def make_mp3_files(file_name):
+    df = pd.read_excel(f"./엑셀파일/{file_name}.xlsx", header=None).iloc[:, :3]
+    df.columns=["한국어", "영어", "중국어"]
+    df.index = df.index + 1
+
+    if not os.path.exists(f"./음성파일/{file_name}"):
+        os.mkdir(f"./음성파일/{file_name}")
+
+    for l in ["한국어", "영어", "중국어"]:
+        if not os.path.exists(f"./음성파일/{file_name}/{l}"):
+            os.mkdir(f"./음성파일/{file_name}/{l}")
+
+    for row in df.itertuples():
+        make_mp3_file(f"./음성파일/{file_name}/한국어/{row[0]}.mp3", row[1], "한국어")
+        make_mp3_file(f"./음성파일/{file_name}/영어/{row[0]}.mp3", row[2], "영어")
+        make_mp3_file(f"./음성파일/{file_name}/중국어/{row[0]}.mp3", row[3], "중국어")
+        print(f"[알림] {row[0]}번째 문장 음성 변환 완료")
+    print("MP3 변환이 완료되었습니다.")
+
+if __name__ == "__main__":
+    make_mp3_files("test")
