@@ -230,7 +230,7 @@ if start_button_1 or start_button_2:
         df = df[[i["언어"] for i in setting_list]]
 
 
-    lang_info = [f"{i['언어']} {i['배속']} 배속" if i['소리'] else f"{i['언어']}" for i in setting_list]
+    lang_info = [f"{i['언어']} {i['배속']} 배속" for i in setting_list if i['소리']]
     lang_info = " / ".join(lang_info)
 
     for i in df.itertuples():
