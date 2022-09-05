@@ -57,4 +57,5 @@ def make_mp3_files(file_name):
     print("MP3 변환이 완료되었습니다.")
 
 if __name__ == "__main__":
-    make_mp3_files("test2")
+    file_name = input("엑셀 파일 이름 입력 (.xlsx 없이! 그냥 파일이름만!) >> ")
+    make_mp3_files(file_name)
