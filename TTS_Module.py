@@ -2,6 +2,12 @@ from gtts import gTTS
 import pandas as pd
 import streamlit as st
 import os
+
+# git add .
+# git commit -m 'test'
+# git push origin master
+
+
 def make_mp3_file(file_name, text, lang):
     if text.strip() == "":
         text = "-"
