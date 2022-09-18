@@ -90,7 +90,7 @@ def setting_lang(lang):
         sound = st.checkbox("소리", key=lang, value=get_saved_data["소리"] if get_saved_data else False)
         if sound:
             sound_speed = st.slider("배속", 1.0, 6.0, step=0.1, key=lang, value=float(get_saved_data["배속"]) if get_saved_data else 0.0)
-            sound_repeat_num = st.slider("반복 횟수", 1, 5, step=1, key=lang, value=int(get_saved_data["반복횟수"]) if get_saved_data else 0)
+            sound_repeat_num = st.slider("반복 횟수", 1, 5, step=1, key=lang, value=int(get_saved_data["반복횟수"]) if get_saved_data else 1)
     result = {"언어":lang, "자막":check, "간격":interval_time, "소리":sound, "배속":sound_speed, "반복횟수":sound_repeat_num}
     return result
 
